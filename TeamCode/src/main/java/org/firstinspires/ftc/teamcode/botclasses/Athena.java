@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 public class Athena {
+    // Declare all hardware map variables
     public DcMotor leftFrontDrive = null;
     public DcMotor leftBackDrive = null;
     public DcMotor rightFrontDrive = null;
@@ -14,9 +15,11 @@ public class Athena {
     public Servo arm = null;
     public BNO055IMU imu = null;
 
+    // Declare all constant variables
     public final static double ARM_OPEN = 0.0;
     public final static double ARM_CLOSED = 1.0;
 
+    // Declare bot runtime object
     public ElapsedTime runtime = new ElapsedTime();
 
     public Athena(HardwareMap hardwareMap) {

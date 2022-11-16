@@ -18,6 +18,8 @@ public class Athena {
     // Declare all constant variables
     public final static double ARM_OPEN = 0.0;
     public final static double ARM_CLOSED = 1.0;
+    public final static int MOTOR_TICK_COUNTS = 560;
+    public final static double WHEEL_DIAMETER = 2.5;
 
     // Declare bot runtime object
     public ElapsedTime runtime = new ElapsedTime();

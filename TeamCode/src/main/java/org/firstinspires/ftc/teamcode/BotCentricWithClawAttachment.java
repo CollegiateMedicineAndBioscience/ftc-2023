@@ -29,9 +29,9 @@ public class BotCentricWithClawAttachment extends LinearOpMode {
 
         while (opModeIsActive()) {
             // Gather sample game pad input data
-            double y = -gamepad1.left_stick_y;
-            double x = gamepad1.left_stick_x * 1.1; // Multiplied by 1.1 to counter imperfect strafing
-            double yaw = gamepad1.right_stick_x;
+            double y = Math.pow(-gamepad1.left_stick_y, 3);
+            double x = Math.pow(gamepad1.left_stick_x, 3) * 1.1; // Multiplied by 1.1 to counter imperfect strafing
+            double yaw = Math.pow(gamepad1.right_stick_x, 3);
 
             // Normalize the values so no wheel power exceeds 100%
             // This also ensures that the power ratios are preserved

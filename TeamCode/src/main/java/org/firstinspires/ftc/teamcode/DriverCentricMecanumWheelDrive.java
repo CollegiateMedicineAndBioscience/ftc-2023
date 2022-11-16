@@ -28,9 +28,9 @@ public class DriverCentricMecanumWheelDrive extends LinearOpMode {
 
         while (opModeIsActive()) {
             // Gather sample game pad input data
-            double y = -gamepad1.left_stick_y;
-            double x = gamepad1.left_stick_x * 1.1; // Multiplied by 1.1 to counter imperfect strafing
-            double yaw = gamepad1.right_stick_x;
+            double y = Math.pow(-gamepad1.left_stick_y, 3);
+            double x = Math.pow(gamepad1.left_stick_x, 3) * 1.1; // Multiplied by 1.1 to counter imperfect strafing
+            double yaw = Math.pow(gamepad1.right_stick_x, 3);
 
             // Reverse the IMU heading (to go counter-clockwise) and sample data
             double botHeading = -robot.imu.getAngularOrientation().firstAngle;

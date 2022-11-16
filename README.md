@@ -2,23 +2,23 @@
 
 Welcome to the programming repository for the Team 9027 Synergistic Effect (Collegiate School of Medicine and Bioscience)! This repository is open-source, so feel free to download, play around, or contribute. Below is a guide detailing how to get set up with a local version of this code and how to begin using this code with your own bot.
 
-| Table of Contents                                         |
-| --------------------------------------------------------- |
-| [Getting Started](#getting-started)                       |
-| [Prerequisites](#prerequisites)                           |
-| [Recommended Tutorials](#recommended-tutorials)           |
-| [Documentation](#documentation)                           |
-| [Downloading and Installing](#downloading-and-installing) |
-| [Sample OpModes](#sample-opmodes)                         |
-| [Creating Your Own OpModes]()                             |
-| [Naming Conventions]()                                    |
-| [Changing the Hardware Mapping]()                         |
-| [Downloading the App to the Control Hub]()                |
-| [Contributing]()                                          |
+| Table of Contents                                                                 |
+| --------------------------------------------------------------------------------- |
+| [Getting Started](#getting-started)                                               |
+| [Prerequisites](#prerequisites)                                                   |
+| [Recommended Tutorials](#recommended-tutorials)                                   |
+| [Documentation](#documentation)                                                   |
+| [Downloading and Installing](#downloading-and-installing)                         |
+| [Sample OpModes](#sample-opmodes)                                                 |
+| [Creating Your Own OpModes](#creating-your-own-opmodes)                           |
+| [Naming Conventions](#naming-conventions)                                         |
+| [Changing the Hardware Mapping](#changing-the-hardware-mapping)                   |
+| [Downloading the App to the Control Hub](#downloading-the-app-to-the-control-hub) |
+| [Contributing](#contributing)                                                     |
 
 ## Getting Started
 
-This repository contains code that is entirely written in Android Studio. As such, there is no possibility for support of the FTC Blocks Online System. However, there is still value in learning how the FTC Blocks Online system works to learn how the code at its base interacts with the robot. It is highly recommended that you learn how Java and how classes interact, as much of the code works through inheritance from the hardware classes that FTC provides to interact with their allowed machinery. For autonomous programming, it is also highly recommended (but not required when you are starting out), to learn about AI training and how Tensorflow learns from the visual data that we can provide using Vuforia (VERY COMPLICATED! NOT REQUIRED! SERIOUSLY, IF YOU'RE NEW, THERE'S LITERALLY NO NEED TO LEARN THIS YET). This repository also uses `git` and GitHub for collaboration, code sharing, and cloud storage. It is almost a hard requirement that you learn how to use `git` and GitHub (IMPORTANT! DO NOT IGNORE!). If you want to learn any of this, tutorials will be included [down below](#user-documentation-and-tutorials).
+This repository contains code that is entirely written in Android Studio. As such, there is no possibility for support of the FTC Blocks Online System. However, there is still value in learning how the FTC Blocks Online system works to learn how the code at its base interacts with the robot. It is highly recommended that you learn how Java and how classes interact, as much of the code works through inheritance from the hardware classes that FTC provides to interact with their allowed machinery. For autonomous programming, it is also highly recommended (but not required when you are starting out), to learn about AI training and how Tensorflow learns from the visual data that we can provide using Vuforia (VERY COMPLICATED! NOT REQUIRED! SERIOUSLY, IF YOU'RE NEW, THERE'S LITERALLY NO NEED TO LEARN THIS YET). This repository also uses `git` and GitHub for collaboration, code sharing, and cloud storage. It is almost a hard requirement that you learn how to use `git` and GitHub (IMPORTANT! DO NOT IGNORE!). If you want to learn any of this, tutorials will be included [down below](#recommended-tutorials).
 
 ## Prerequisites
 

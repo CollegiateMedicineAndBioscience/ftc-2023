@@ -14,7 +14,7 @@ public class Viperslide {
     public final static int GROUND = 0;
 
     public Viperslide(HardwareMap hardwareMap) {
-        // Initialize installed motors
+        // Initialize installed hardware
         sliderMotor = hardwareMap.get(DcMotorEx.class, "sliderMotor");
 
         // Configure slider motor

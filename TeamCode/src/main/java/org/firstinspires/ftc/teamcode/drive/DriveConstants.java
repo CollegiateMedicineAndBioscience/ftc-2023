@@ -22,8 +22,8 @@ public class DriveConstants {
     /*
      * These are motor constants that should be listed online for your motors.
      */
-    public static final double TICKS_PER_REV = 537.6;
-    public static final double MAX_RPM = 312.5;
+    public static final double TICKS_PER_REV = 560;
+    public static final double MAX_RPM = 300;
 
     /*
      * Set RUN_USING_ENCODER to true to enable built-in hub velocity control using drive encoders.
@@ -47,7 +47,7 @@ public class DriveConstants {
      */
     public static double WHEEL_RADIUS = 1.4763; // in
     public static double GEAR_RATIO = 1; // output (wheel) speed / input (motor) speed
-    public static double TRACK_WIDTH = 18; // in
+    public static double TRACK_WIDTH = 12; // in
 
     /*
      * These are the feedforward parameters used to model the drive motor behavior. If you are using
@@ -70,27 +70,27 @@ public class DriveConstants {
      * Note from LearnRoadRunner.com:
      * The velocity and acceleration constraints were calculated based on the following equation:
      * ((MAX_RPM / 60) * GEAR_RATIO * WHEEL_RADIUS * 2 * Math.PI) * 0.85
-     * Resulting in 41.065033847087705 in/s.
+     * Resulting in 39.4224324932042 in/s.
      * This is only 85% of the theoretical maximum velocity of the bot, following the recommendation above.
      * This is capped at 85% because there are a number of variables that will prevent your bot from actually
      * reaching this maximum velocity: voltage dropping over the game, bot weight, general mechanical inefficiencies, etc.
      * However, you can push this higher yourself if you'd like. Perhaps raise it to 90-95% of the theoretically
-     * max velocity. The theoretically maximum velocity is 48.311804525985536 in/s.
+     * max velocity. The theoretically maximum velocity is 46.379332344946114 in/s.
      * Just make sure that your bot can actually reach this maximum velocity. Path following will be detrimentally
      * affected if it is aiming for a velocity not actually possible.
      *
      * The maximum acceleration is somewhat arbitrary and it is recommended that you tweak this yourself based on
      * actual testing. Just set it at a reasonable value and keep increasing until your path following starts
-     * to degrade. As of now, it simply mirrors the velocity, resulting in 41.065033847087705 in/s/s
+     * to degrade. As of now, it simply mirrors the velocity, resulting in 39.4224324932042 in/s/s
      *
      * Maximum Angular Velocity is calculated as: maximum velocity / trackWidth * (180 / Math.PI) but capped at 360°/s.
      * You are free to raise this on your own if you would like. It is best determined through experimentation.
 
      */
-    public static double MAX_VEL = 41.065033847087705;
-    public static double MAX_ACCEL = 41.065033847087705;
-    public static double MAX_ANG_VEL = Math.toRadians(130.71406249999998);
-    public static double MAX_ANG_ACCEL = Math.toRadians(130.71406249999998);
+    public static double MAX_VEL = 39.4224324932042;
+    public static double MAX_ACCEL = 39.4224324932042;
+    public static double MAX_ANG_VEL = Math.toRadians(188.22825);
+    public static double MAX_ANG_ACCEL = Math.toRadians(188.22825);
 
 
     public static double encoderTicksToInches(double ticks) {

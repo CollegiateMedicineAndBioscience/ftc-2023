@@ -15,4 +15,12 @@ public class ConeGate {
         // Initialize installed servos
         arm = hardwareMap.get(Servo.class, "coneGateServo");
     }
+
+    public void open() {
+        arm.setPosition(ARM_OPEN);
+    }
+
+    public void close() {
+        arm.setPosition(ARM_CLOSED);
+    }
 }

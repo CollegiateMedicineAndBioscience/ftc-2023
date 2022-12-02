@@ -1,12 +1,11 @@
 package org.firstinspires.ftc.teamcode.drive;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class Viperslide {
     // Declare all hardware map variables
-    public DcMotorEx sliderMotor = null;
+    public DcMotor sliderMotor = null;
 
     public final static int HIGH = 0;
     public final static int MED = 0;
@@ -15,11 +14,11 @@ public class Viperslide {
 
     public Viperslide(HardwareMap hardwareMap) {
         // Initialize installed hardware
-        sliderMotor = hardwareMap.get(DcMotorEx.class, "sliderMotor");
+        sliderMotor = hardwareMap.get(DcMotor.class, "sliderMotor");
 
         // Configure slider motor
-        sliderMotor.setDirection(DcMotorEx.Direction.FORWARD);
-        sliderMotor.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        sliderMotor.setDirection(DcMotor.Direction.FORWARD);
+        sliderMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         sliderMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 }

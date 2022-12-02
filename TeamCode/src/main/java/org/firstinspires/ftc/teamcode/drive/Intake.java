@@ -6,17 +6,14 @@ import com.qualcomm.robotcore.hardware.CRServo;
 
 public class Intake {
     // Declare all hardware map variables
-    public CRServo rightServo = null;
-    public CRServo leftServo = null;
+    public CRServo servo = null;
     public DigitalChannel limit = null;
 
     public Intake(HardwareMap hardwareMap) {
         // Initialize installed hardware
-        rightServo = hardwareMap.get(CRServo.class, "rightIntake");
-        leftServo = hardwareMap.get(CRServo.class, "leftIntake");
+        servo = hardwareMap.get(CRServo.class, "intakeServo");
         limit = hardwareMap.get(DigitalChannel.class, "intakeLimit");
 
-        rightServo.setDirection(CRServo.Direction.FORWARD);
-        leftServo.setDirection(CRServo.Direction.REVERSE);
+        servo.setDirection(CRServo.Direction.FORWARD);
     }
 }

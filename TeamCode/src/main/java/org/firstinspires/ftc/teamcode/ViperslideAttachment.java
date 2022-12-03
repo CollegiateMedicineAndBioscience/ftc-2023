@@ -19,7 +19,7 @@ public class ViperslideAttachment extends LinearOpMode {
         Viperslide viperslide = new Viperslide(hardwareMap);
 
         // Add ready status to telemetry
-        telemetry.addData("Status", "<-- Press play to begin");
+        telemetry.addData(">", "Press PLAY to start");
         telemetry.update();
 
         // Wait for game start, abort if canceled

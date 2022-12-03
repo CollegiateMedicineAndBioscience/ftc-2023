@@ -41,17 +41,11 @@ import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
 
 import java.util.List;
 
-/**
- * This 2022-2023 OpMode illustrates the basics of using the TensorFlow Object Detection API to
- * determine which image is being presented to the robot.
- *
- * Use Android Studio to Copy this Class, and Paste it into your team's code folder with a new name.
- * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list.
- *
- * IMPORTANT: In order to use this OpMode, you need to obtain your own Vuforia license key as
- * is explained below.
+/*
+ * DISABLED: Powerplay AI Model is not compatible with the vuforia input at the moment.
  */
 @TeleOp(name = "TFOD Webcam", group = "Test")
+@Disabled
 public class TFODWebcam extends LinearOpMode {
     private static final String TFOD_MODEL_FILE  = "/sdcard/FIRST/tflitemodels/powerplay_det0.tflite";
 
@@ -76,7 +70,7 @@ public class TFODWebcam extends LinearOpMode {
             tfod.setZoom(1.0, 16.0/9.0);
         }
 
-        telemetry.addData(">", "Press Play to start op mode");
+        telemetry.addData(">", "Press PLAY to start");
         telemetry.update();
         waitForStart();
 

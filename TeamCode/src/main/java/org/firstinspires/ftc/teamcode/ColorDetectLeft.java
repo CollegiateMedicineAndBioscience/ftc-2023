@@ -1,7 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.acmerobotics.roadrunner.geometry.Pose2d;
-import com.acmerobotics.roadrunner.geometry.Vector2d;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -37,26 +36,29 @@ public class ColorDetectLeft extends LinearOpMode {
             public void onError(int errorCode) {}
         });
 
-        ParkingPosition parkingPosition = ParkingPosition.CENTER;
+        ParkingPosition parkingPosition = sleeveDetection.getPosition();
 
-        TrajectorySequence leftTraj = drive.trajectorySequenceBuilder(new Pose2d(34.5, -64, Math.toRadians(90)))
-                .forward(53)
-                .strafeLeft(24)
+        Pose2d startPose = new Pose2d(-34.5, -64, Math.toRadians(90));
+        drive.setPoseEstimate(startPose);
+
+        TrajectorySequence leftTraj = drive.trajectorySequenceBuilder(startPose)
+                .forward(52)
+                .strafeLeft(22)
                 .build();
 
         TrajectorySequence centerTraj = drive.trajectorySequenceBuilder(new Pose2d(34.5, -64, Math.toRadians(90)))
-                .forward(53)
+                .forward(52)
                 .build();
 
         TrajectorySequence rightTraj = drive.trajectorySequenceBuilder(new Pose2d(34.5, -64, Math.toRadians(90)))
-                .forward(53)
-                .strafeRight(24)
+                .forward(52)
+                .strafeRight(22)
                 .build();
 
         while (!isStarted()) {
             parkingPosition = sleeveDetection.getPosition();
             telemetry.addData("Parking Position ", parkingPosition);
-            telemetry.addData(">: ", "Press PLAY to start");
+            telemetry.addData("> ", "Press PLAY to start");
             telemetry.update();
         }
 

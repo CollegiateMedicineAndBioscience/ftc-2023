@@ -26,7 +26,7 @@ public class DCMecanumDrive extends LinearOpMode {
         drive.setPoseEstimate(PoseStorage.currentPose);
 
         // Add ready status to telemetry
-        telemetry.addData("Status", "<-- Press play to begin");
+        telemetry.addData(">", "Press PLAY to start");
         telemetry.update();
 
         waitForStart();

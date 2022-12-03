@@ -37,20 +37,23 @@ public class ColorDetectRight extends LinearOpMode {
             public void onError(int errorCode) {}
         });
 
-        ParkingPosition parkingPosition = ParkingPosition.CENTER;
+        ParkingPosition parkingPosition = sleeveDetection.getPosition();
 
-        TrajectorySequence leftTraj = drive.trajectorySequenceBuilder(new Pose2d(34.5, -64, Math.toRadians(90)))
-                .forward(53)
-                .strafeTo(new Vector2d(10.5, -11))
+        Pose2d startPose = new Pose2d(-34.5, -64, Math.toRadians(90));
+        drive.setPoseEstimate(startPose);
+
+        TrajectorySequence leftTraj = drive.trajectorySequenceBuilder(startPose)
+                .forward(52)
+                .strafeLeft(22)
                 .build();
 
         TrajectorySequence centerTraj = drive.trajectorySequenceBuilder(new Pose2d(34.5, -64, Math.toRadians(90)))
-                .forward(53)
+                .forward(52)
                 .build();
 
         TrajectorySequence rightTraj = drive.trajectorySequenceBuilder(new Pose2d(34.5, -64, Math.toRadians(90)))
-                .forward(53)
-                .strafeTo(new Vector2d(58.5, -11))
+                .forward(52)
+                .strafeRight(22)
                 .build();
 
         while (!isStarted()) {

@@ -9,8 +9,8 @@ import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 
-@Autonomous(name = "Signal Sleeve Test")
-public class VisionTest extends LinearOpMode {
+@Autonomous(name = "Webcam")
+public class VisionAttachment extends LinearOpMode {
     SleeveDetection sleeveDetection;
     OpenCvCamera camera;
 
@@ -37,12 +37,11 @@ public class VisionTest extends LinearOpMode {
         });
 
         while (!isStarted()) {
-            telemetry.addData("ROTATION: ", sleeveDetection.getPosition());
+            telemetry.addData("Rotation", sleeveDetection.getPosition());
+            telemetry.addData(">", "Press PLAY to start");
             telemetry.update();
         }
 
         waitForStart();
-
-
     }
 }

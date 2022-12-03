@@ -17,7 +17,7 @@ public class IntakeAttachment extends LinearOpMode {
         Intake intake = new Intake(hardwareMap);
 
         // Add ready status to telemetry
-        telemetry.addData("Status", "<-- Press play to begin");
+        telemetry.addData(">", "Press PLAY to start");
         telemetry.update();
 
         // Wait for game start, abort if canceled

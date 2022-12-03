@@ -36,8 +36,8 @@ public class MeepMeepTesting {
                                 .lineToSplineHeading(new Pose2d(12, -12, Math.toRadians(180)))
                                 .build()*/
                         drive.trajectorySequenceBuilder(new Pose2d(-34.5, -64, Math.toRadians(90)))
-                                .forward(53)
-                                .strafeRight(24)
+                                .forward(52)
+                                .strafeRight(22)
                                 .build()
                 );
 

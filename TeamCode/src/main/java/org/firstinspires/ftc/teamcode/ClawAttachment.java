@@ -17,7 +17,7 @@ public class ClawAttachment extends LinearOpMode {
         ConeGate coneGate = new ConeGate(hardwareMap);
 
         // Add ready status to telemetry
-        telemetry.addData("Status", "<-- Press play to begin");
+        telemetry.addData(">", "Press PLAY to start");
         telemetry.update();
 
         // Wait for game start, abort if canceled

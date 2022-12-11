@@ -21,7 +21,7 @@ public class BCMecanumDrive extends LinearOpMode {
         // Turn off velocity control for teleop
         drive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        // Set your initial pose to x: 10, y: 10, facing 90 degrees
+        // Load pose from autonomous
         drive.setPoseEstimate(PoseStorage.currentPose);
 
         // Add ready status to telemetry

@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.drive.Viperslide;
 
 
-@TeleOp(name="Viperslide", group="Test")
+@TeleOp(name="Viperslide", group="test")
 public class ViperslideAttachment extends LinearOpMode {
     @Override
     public void runOpMode() {
@@ -29,42 +29,30 @@ public class ViperslideAttachment extends LinearOpMode {
         // Reset runtime timer to 0
         runtime.reset();
         while (opModeIsActive()) {
-            double leftY = -gamepad1.left_stick_y;
-
-
-            if (gamepad1.left_bumper) {
-                viperslide.sliderMotor.setPower(leftY / 2);
-            } else {
-                viperslide.sliderMotor.setPower(leftY);
+            if (gamepad1.left_stick_y != 0) {
+                viperslide.manualControl(-gamepad1.left_stick_y);
             }
 
 //            if (gamepad1.a) {
-//                viperslide.sliderMotor.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
-//                viperslide.sliderMotor.setTargetPosition(viperslide.HIGH);
-//                viperslide.sliderMotor.setPower(1);
+//                viperslide.runToHeight(Viperslide.Checkpoint.HIGH);
 //            }
 //
 //            if (gamepad1.b) {
-//                viperslide.sliderMotor.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
-//                viperslide.sliderMotor.setTargetPosition(viperslide.MED);
-//                viperslide.sliderMotor.setPower(1);
+//                viperslide.runToHeight(Viperslide.Checkpoint.MED);
 //            }
 //
 //            if (gamepad1.x) {
-//                viperslide.sliderMotor.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
-//                viperslide.sliderMotor.setTargetPosition(viperslide.LOW);
-//                viperslide.sliderMotor.setPower(1);
+//                viperslide.runToHeight(Viperslide.Checkpoint.LOW);
 //            }
 //
 //            if (gamepad1.y) {
-//                viperslide.sliderMotor.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
-//                viperslide.sliderMotor.setTargetPosition(viperslide.GROUND);
-//                viperslide.sliderMotor.setPower(1);
+//                viperslide.runToHeight(Viperslide.Checkpoint.GROUND);
 //            }
 
             // Show the elapsed game time and update arm position.
             telemetry.addData("Runtime", runtime.toString());
             telemetry.addData("Height", viperslide.sliderMotor.getCurrentPosition());
+//            telemetry.addData("Target Position", viperslide.sliderMotor.getTargetPosition());
             telemetry.update();
         }
     }}

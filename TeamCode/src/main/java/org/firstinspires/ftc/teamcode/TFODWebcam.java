@@ -42,9 +42,9 @@ import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
 import java.util.List;
 
 /*
- * DISABLED: Powerplay AI Model is not compatible with the vuforia input at the moment.
+ *   DISABLED: Powerplay AI Model is not compatible with the vuforia input at the moment.
  */
-@TeleOp(name = "TFOD Webcam", group = "Test")
+@TeleOp(name = "TFOD Webcam", group = "test")
 @Disabled
 public class TFODWebcam extends LinearOpMode {
     private static final String TFOD_MODEL_FILE  = "/sdcard/FIRST/tflitemodels/powerplay_det0.tflite";

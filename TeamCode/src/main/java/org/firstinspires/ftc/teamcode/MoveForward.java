@@ -8,8 +8,9 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
+import org.firstinspires.ftc.teamcode.util.PoseStorage;
 
-@Autonomous
+@Autonomous(name="Move Forward")
 @Disabled
 public class MoveForward extends LinearOpMode {
     @Override
@@ -39,5 +40,7 @@ public class MoveForward extends LinearOpMode {
         runtime.reset();
 
         drive.followTrajectorySequence(trajSeq);
+
+        PoseStorage.currentPose = drive.getPoseEstimate();
     }
 }

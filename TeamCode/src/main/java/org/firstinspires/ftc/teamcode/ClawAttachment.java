@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.drive.ConeGate;
 
 
-@TeleOp(name="Claw", group="Test")
+@TeleOp(name="Claw", group="test")
 public class ClawAttachment extends LinearOpMode {
     @Override
     public void runOpMode() {
@@ -29,10 +29,10 @@ public class ClawAttachment extends LinearOpMode {
 
         while (opModeIsActive()) {
             if (gamepad1.a) {
-                coneGate.arm.setPosition(ConeGate.ARM_OPEN);
+                coneGate.open();
             }
             if (gamepad1.b) {
-                coneGate.arm.setPosition(ConeGate.ARM_CLOSED);
+                coneGate.close();
             }
 
             // Show the elapsed game time and update arm position.

@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.drive.Intake;
 
 
-@TeleOp(name="Intake", group="Test")
+@TeleOp(name="Intake", group="test")
 public class IntakeAttachment extends LinearOpMode {
     @Override
     public void runOpMode() {

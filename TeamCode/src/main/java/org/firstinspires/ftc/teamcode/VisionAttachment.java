@@ -9,7 +9,7 @@ import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 
-@Autonomous(name = "Webcam")
+@Autonomous(name = "Webcam", group="test")
 public class VisionAttachment extends LinearOpMode {
     SleeveDetection sleeveDetection;
     OpenCvCamera camera;

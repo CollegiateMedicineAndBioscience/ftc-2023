@@ -8,18 +8,20 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
-import org.firstinspires.ftc.teamcode.drive.ConeGate;
+import org.firstinspires.ftc.teamcode.drive.Viperslide;
+import org.firstinspires.ftc.teamcode.drive.Intake;
 import org.firstinspires.ftc.teamcode.util.PoseStorage;
 
-@TeleOp(name="DC Mecanum Drive Claw", group="driver centric")
-public class DCMecanumDriveClaw extends LinearOpMode {
+@TeleOp(name="DC Mecanum Drive Viperslide", group="driver centric")
+public class DCMecanumDriveViperslide extends LinearOpMode {
     @Override
     public void runOpMode() {
         ElapsedTime runtime = new ElapsedTime();
 
         // Initialize the hardware
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
-        ConeGate intake = new ConeGate(hardwareMap);
+        Viperslide viperslide = new Viperslide(hardwareMap);
+        Intake intake = new Intake(hardwareMap);
 
         // Turn off velocity control for teleop
         drive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -54,12 +56,32 @@ public class DCMecanumDriveClaw extends LinearOpMode {
             // Update drive parameters
             drive.update();
 
-            if (gamepad1.a) {
-                intake.open();
+            if (gamepad2.left_stick_y != 0) {
+                viperslide.manualControl(-gamepad2.left_stick_y);
             }
 
-            if (gamepad1.b) {
-                intake.close();
+            if (gamepad2.a) {
+                viperslide.runToHeight(Viperslide.Checkpoint.HIGH);
+            }
+
+            if (gamepad2.b) {
+                viperslide.runToHeight(Viperslide.Checkpoint.MED);
+            }
+
+            if (gamepad2.x) {
+                viperslide.runToHeight(Viperslide.Checkpoint.LOW);
+            }
+
+            if (gamepad2.y) {
+                viperslide.runToHeight(Viperslide.Checkpoint.GROUND);
+            }
+
+            if (gamepad2.left_trigger > 0) {
+                intake.intake();
+            } else if (gamepad2.right_trigger > 0) {
+                intake.outtake();
+            } else {
+                intake.off();
             }
 
             // Print pose to telemetry
@@ -67,7 +89,9 @@ public class DCMecanumDriveClaw extends LinearOpMode {
             telemetry.addData("X", poseEstimate.getX());
             telemetry.addData("Y", poseEstimate.getY());
             telemetry.addData("Heading", poseEstimate.getHeading());
-            telemetry.addData("Intake", "4.2f", intake.arm.getPosition());
+            telemetry.addData("Viperslide", viperslide.sliderMotor.getCurrentPosition());
+            telemetry.addData("Target Height", viperslide.sliderMotor.getTargetPosition());
+            telemetry.addData("Intake", intake.servo.getPower());
             telemetry.update();
         }
     }

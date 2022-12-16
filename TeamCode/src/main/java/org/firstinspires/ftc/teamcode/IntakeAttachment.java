@@ -28,16 +28,17 @@ public class IntakeAttachment extends LinearOpMode {
         runtime.reset();
 
         while (opModeIsActive()) {
-            if (gamepad1.a && !intake.limit.getState()) {
-                intake.servo.setPower(1.0);
-            }
-
-            if (gamepad1.b) {
-                intake.servo.setPower(-1.0);
+            if (gamepad1.left_trigger > 0) {
+                intake.intake();
+            } else if (gamepad1.right_trigger > 0) {
+                intake.outtake();
+            } else {
+                intake.off();
             }
 
             // Show the elapsed game time and update arm position.
             telemetry.addData("Runtime", runtime.toString());
+            telemetry.addData("Intake", intake.servo.getPower());
             telemetry.update();
         }
     }}

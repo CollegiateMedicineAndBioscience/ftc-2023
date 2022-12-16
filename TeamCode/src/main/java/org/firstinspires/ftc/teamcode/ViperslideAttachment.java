@@ -33,26 +33,26 @@ public class ViperslideAttachment extends LinearOpMode {
                 viperslide.manualControl(-gamepad1.left_stick_y);
             }
 
-//            if (gamepad1.a) {
-//                viperslide.runToHeight(Viperslide.Checkpoint.HIGH);
-//            }
-//
-//            if (gamepad1.b) {
-//                viperslide.runToHeight(Viperslide.Checkpoint.MED);
-//            }
-//
-//            if (gamepad1.x) {
-//                viperslide.runToHeight(Viperslide.Checkpoint.LOW);
-//            }
-//
-//            if (gamepad1.y) {
-//                viperslide.runToHeight(Viperslide.Checkpoint.GROUND);
-//            }
+            if (gamepad1.a) {
+                viperslide.runToHeight(Viperslide.Checkpoint.HIGH);
+            }
+
+            if (gamepad1.b) {
+                viperslide.runToHeight(Viperslide.Checkpoint.MED);
+            }
+
+            if (gamepad1.x) {
+                viperslide.runToHeight(Viperslide.Checkpoint.LOW);
+            }
+
+            if (gamepad1.y) {
+                viperslide.runToHeight(Viperslide.Checkpoint.GROUND);
+            }
 
             // Show the elapsed game time and update arm position.
             telemetry.addData("Runtime", runtime.toString());
             telemetry.addData("Height", viperslide.sliderMotor.getCurrentPosition());
-//            telemetry.addData("Target Position", viperslide.sliderMotor.getTargetPosition());
+            telemetry.addData("Target Position", viperslide.sliderMotor.getTargetPosition());
             telemetry.update();
         }
     }}

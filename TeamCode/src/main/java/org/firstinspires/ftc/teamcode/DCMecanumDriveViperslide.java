@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.teamcode.drive.ConeGate;
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 import org.firstinspires.ftc.teamcode.drive.Viperslide;
 import org.firstinspires.ftc.teamcode.drive.Intake;
@@ -22,12 +23,13 @@ public class DCMecanumDriveViperslide extends LinearOpMode {
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
         Viperslide viperslide = new Viperslide(hardwareMap);
         Intake intake = new Intake(hardwareMap);
+        ConeGate gate = new ConeGate(hardwareMap);
 
         // Turn off velocity control for teleop
         drive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // Load pose from autonomous
-        drive.setPoseEstimate(PoseStorage.currentPose);
+        drive.setPoseEstimate(drive.getPoseEstimate());
 
         // Add ready status to telemetry
         telemetry.addData(">", "Press PLAY to start");
@@ -56,33 +58,40 @@ public class DCMecanumDriveViperslide extends LinearOpMode {
             // Update drive parameters
             drive.update();
 
-            if (gamepad2.left_stick_y != 0) {
-                viperslide.manualControl(-gamepad2.left_stick_y);
+            if (gamepad2.right_stick_y != 0) {
+                viperslide.manualControl(-gamepad2.right_stick_y);
             }
 
             if (gamepad2.a) {
+                viperslide.runToHeight(Viperslide.Checkpoint.LOW);
+            }
+
+            if (gamepad2.x) {
+                viperslide.runToHeight(Viperslide.Checkpoint.MED);
+            }
+
+            if (gamepad2.y) {
                 viperslide.runToHeight(Viperslide.Checkpoint.HIGH);
             }
 
             if (gamepad2.b) {
-                viperslide.runToHeight(Viperslide.Checkpoint.MED);
-            }
-
-            if (gamepad2.x) {
-                viperslide.runToHeight(Viperslide.Checkpoint.LOW);
-            }
-
-            if (gamepad2.y) {
                 viperslide.runToHeight(Viperslide.Checkpoint.GROUND);
             }
 
-            if (gamepad2.left_trigger > 0) {
+            if (gamepad2.dpad_up) {
                 intake.intake();
-            } else if (gamepad2.right_trigger > 0) {
+            } else if (gamepad2.dpad_down) {
                 intake.outtake();
             } else {
                 intake.off();
             }
+
+            if (gamepad2.dpad_left) {
+                gate.open();
+            } else if (gamepad2.dpad_right) {
+                gate.close();
+            }
+
 
             // Print pose to telemetry
             telemetry.addData("Runtime", runtime.toString());

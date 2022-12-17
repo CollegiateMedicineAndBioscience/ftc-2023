@@ -23,7 +23,7 @@ public class DCMecanumDrive extends LinearOpMode {
         drive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // Load pose from autonomous
-        drive.setPoseEstimate(PoseStorage.currentPose);
+        drive.setPoseEstimate(drive.getPoseEstimate());
 
         // Add ready status to telemetry
         telemetry.addData(">", "Press PLAY to start");

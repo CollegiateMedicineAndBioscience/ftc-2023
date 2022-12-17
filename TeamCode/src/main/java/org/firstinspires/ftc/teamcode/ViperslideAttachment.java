@@ -34,18 +34,18 @@ public class ViperslideAttachment extends LinearOpMode {
             }
 
             if (gamepad1.a) {
+                viperslide.runToHeight(Viperslide.Checkpoint.LOW);
+            }
+
+            if (gamepad1.x) {
+                viperslide.runToHeight(Viperslide.Checkpoint.MED);
+            }
+
+            if (gamepad1.y) {
                 viperslide.runToHeight(Viperslide.Checkpoint.HIGH);
             }
 
             if (gamepad1.b) {
-                viperslide.runToHeight(Viperslide.Checkpoint.MED);
-            }
-
-            if (gamepad1.x) {
-                viperslide.runToHeight(Viperslide.Checkpoint.LOW);
-            }
-
-            if (gamepad1.y) {
                 viperslide.runToHeight(Viperslide.Checkpoint.GROUND);
             }
 

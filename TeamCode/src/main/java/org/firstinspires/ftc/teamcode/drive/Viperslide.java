@@ -9,7 +9,7 @@ public class Viperslide {
     public DcMotor sliderMotor = null;
 
     public enum Checkpoint {
-        HIGH(3920), MED(2770), LOW(1870), GROUND(0);
+        HIGH(4050), MED(2940), LOW(1750), GROUND(0);
 
         private int height;
 
@@ -27,7 +27,7 @@ public class Viperslide {
         sliderMotor = hardwareMap.get(DcMotor.class, "sliderMotor");
 
         // Configure slider motor
-        sliderMotor.setDirection(DcMotor.Direction.FORWARD);
+        sliderMotor.setDirection(DcMotor.Direction.REVERSE);
         sliderMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         sliderMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         sliderMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -40,7 +40,11 @@ public class Viperslide {
     }
 
     public void manualControl(double input) {
-        sliderMotor.setTargetPosition((int) (sliderMotor.getCurrentPosition() + (input * 10)));
+        int targetPos = (int) (sliderMotor.getCurrentPosition() + (input * 50));
+        if (targetPos < 0) {
+            targetPos = 0;
+        }
+        sliderMotor.setTargetPosition(targetPos);
         sliderMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         sliderMotor.setPower(1.0);
     }

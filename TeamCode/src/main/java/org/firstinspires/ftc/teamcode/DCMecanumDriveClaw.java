@@ -36,18 +36,28 @@ public class DCMecanumDriveClaw extends LinearOpMode {
 
         runtime.reset();
         while (opModeIsActive() && !isStopRequested()) {
+            float xInput = -gamepad1.left_stick_x;
+            float yInput = -gamepad1.left_stick_y;
+            float rotInput = -gamepad1.right_stick_x;
+
+            if (gamepad1.right_bumper || gamepad1.left_bumper) {
+                xInput /= 2;
+                yInput /= 2;
+                rotInput /= 2;
+            }
+
             Pose2d poseEstimate = drive.getPoseEstimate();
 
             Vector2d input = new Vector2d(
-                    -gamepad1.left_stick_y,
-                    -gamepad1.left_stick_x
+                    yInput,
+                    xInput
             ).rotated(-poseEstimate.getHeading());
 
             drive.setWeightedDrivePower(
                     new Pose2d(
                             input.getX(),
                             input.getY(),
-                            -gamepad1.right_stick_x
+                            rotInput
                     )
             );
 

@@ -23,7 +23,6 @@ public class DCMecanumDriveViperslide extends LinearOpMode {
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
         Viperslide viperslide = new Viperslide(hardwareMap);
         Intake intake = new Intake(hardwareMap);
-        ConeGate gate = new ConeGate(hardwareMap);
 
         // Turn off velocity control for teleop
         drive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -40,18 +39,28 @@ public class DCMecanumDriveViperslide extends LinearOpMode {
 
         runtime.reset();
         while (opModeIsActive() && !isStopRequested()) {
+            float xInput = -gamepad1.left_stick_x;
+            float yInput = -gamepad1.left_stick_y;
+            float rotInput = -gamepad1.right_stick_x;
+
+            if (gamepad1.right_bumper || gamepad1.left_bumper) {
+                xInput /= 2;
+                yInput /= 2;
+                rotInput /= 2;
+            }
+
             Pose2d poseEstimate = drive.getPoseEstimate();
 
             Vector2d input = new Vector2d(
-                    -gamepad1.left_stick_y,
-                    -gamepad1.left_stick_x
+                    yInput,
+                    xInput
             ).rotated(-poseEstimate.getHeading());
 
             drive.setWeightedDrivePower(
                     new Pose2d(
                             input.getX(),
                             input.getY(),
-                            -gamepad1.right_stick_x
+                            rotInput
                     )
             );
 
@@ -84,12 +93,6 @@ public class DCMecanumDriveViperslide extends LinearOpMode {
                 intake.outtake();
             } else {
                 intake.off();
-            }
-
-            if (gamepad2.dpad_left) {
-                gate.open();
-            } else if (gamepad2.dpad_right) {
-                gate.close();
             }
 
 
